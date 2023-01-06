@@ -11,7 +11,7 @@ public class BoundaryValueMain {
 
         //อ่าน database ของ document
         Database<TestingInput, TestingInputList> database = new Input_DBConnect();
-        String query1 = " Select * FROM boundary_value ;  ";
+        String query1 = "Select * FROM boundary_value;";
         //เอาที่อ่านจาก database มาใส่ list
         list = database.readDatabase(query1); //ได้  list ทั้งหมดจากตาราง boundary_value
 
