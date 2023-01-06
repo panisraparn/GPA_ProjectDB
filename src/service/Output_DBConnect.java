@@ -259,5 +259,17 @@ public class Output_DBConnect implements Database<TestingOutput, TestingOutputLi
     public void updateDatabase(String q) {
     }
 
+    @Override
+    public void deleteAllBoundaryValueRecord() {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/gpa_project", "root", "");
+            PreparedStatement st = connection.prepareStatement("DELETE FROM boundary_value_output");
+            st.executeUpdate();
+        } catch(Exception e) {
+            System.out.println(e);
+        }
+    }
+
 
 }

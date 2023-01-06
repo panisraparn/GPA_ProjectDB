@@ -81,4 +81,9 @@ public class Expected_DBConnect implements Database<Expected, ExpectedList>{
     @Override
     public void updateDatabase(String q) {
     }
+
+    @Override
+    public void deleteAllBoundaryValueRecord() {
+
+    }
 }

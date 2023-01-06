@@ -12,4 +12,6 @@ public interface Database<T, C> {
 
     //ใส่ query --> update table
     void updateDatabase(String q);
+
+    void deleteAllBoundaryValueRecord();
 }

@@ -127,5 +127,8 @@ public class Input_DBConnect implements Database<TestingInput, TestingInputList>
     public void updateDatabase(String q) {
     }
 
+    @Override
+    public void deleteAllBoundaryValueRecord() {
 
+    }
 }

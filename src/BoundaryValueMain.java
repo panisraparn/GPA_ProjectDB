@@ -27,14 +27,13 @@ public class BoundaryValueMain {
         Database<TestingOutput, TestingOutputList> database1 = new Output_DBConnect();
 
         //for loop วน Output list
-        TestingOutput  output = new TestingOutput();
-        database1.insertDatabase(output);
+        for(int i = 0; i < 9; i++){
+            TestingOutput output = new TestingOutput(testingOutputList.getTestingOutputs().get(i).getInputId(), testingOutputList.getTestingOutputs().get(i).getInputId(), testingOutputList.getTestingOutputs().get(i).getResult());
+            database1.insertDatabase(output);
+        }
 
 
-
-
-
-        System.out.println(testingOutputList.toCsv());
+//        System.out.println(testingOutputList.toCsv());
 
 
 
