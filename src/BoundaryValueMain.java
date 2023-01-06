@@ -16,7 +16,7 @@ public class BoundaryValueMain {
         //เอาที่อ่านจาก database มาใส่ list
         list = database.readDatabase(query1);//ได้  list ทั้งหมดจากตาราง boundary_value
 
-        String query2 = "Select * FROM boundary_value;";
+//        String query2 = "Select * FROM boundary_value;";
         TestingOutputList testingOutputList = new TestingOutputList();
         testingOutputList = testingOutputList.searchPassInput(list);
 
