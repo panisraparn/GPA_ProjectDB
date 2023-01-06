@@ -34,7 +34,7 @@ public class TestingOutput {
     }
 
     public void setResult(String result) {
-        result = result;
+        this.result = result;
     }
 
     public String toCsv() {

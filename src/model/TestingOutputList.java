@@ -16,7 +16,24 @@ public class TestingOutputList {
         testingOutputs.add(output);
     }
 
-
+    public TestingOutputList searchPassInput(TestingInputList list){
+        TestingOutputList outputList = new TestingOutputList();
+        for(TestingInput input: list.getTestingInputs()){
+//            System.out.println("line 22; " + input.getInputId() + ", " + input.getGrade() + "\n");
+            TestingInput inputResult = input;
+            TestingOutput outputResult = new TestingOutput(input.getInputId(), input.getInputId(), "N");
+            if(input.getGrade() >= 0 && input.getGrade() <= 4 && input.getCredit() >=0 && input.getCredit() <= 134  ){
+//                System.out.println("เข้า\n");
+                outputResult.setResult("P");
+//                System.out.println("line28; " + outputResult.getOutputId() + ", " +outputResult.getResult() + "\n");
+            }
+            else {
+                outputResult.setResult("F");
+            }
+            outputList.addTestingOutput(outputResult);
+        }
+        return outputList;
+    }
 
     // เรียกดู input ทั้งหมด
     public ArrayList<TestingOutput> getTestingOutputs(){

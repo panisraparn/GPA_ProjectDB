@@ -15,7 +15,21 @@ public class TestingInputList {
         testingInputs.add(input);
     }
 
-
+//    public TestingOutputList searchPassInput(TestingInputList list){
+//        TestingOutputList outputList = new TestingOutputList();
+//        for(TestingInput input: this.testingInputs){
+//            TestingInput inputResult = input;
+//            TestingOutput outputResult = new TestingOutput(input.getInputId(), input.getInputId(), "N");
+//            if(input.getGrade() >= 0 && input.getGrade() <= 4 && input.getCredit() >=0 && input.getCredit() <= 134  ){
+//                outputResult.setResult("P");
+//            }
+//            else {
+//                outputResult.setResult("F");
+//            }
+//            outputList.addTestingOutput(outputResult);
+//        }
+//        return outputList;
+//    }
 
     // เรียกดู input ทั้งหมด
     public ArrayList<TestingInput> getTestingInputs(){
