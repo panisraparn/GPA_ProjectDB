@@ -31,7 +31,7 @@ public class Output_DBConnect implements Database<TestingOutput, TestingOutputLi
             conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/gpa_project", "root", "");
             System.out.println("Connection is created successfully:");
             stmt = (Statement) conn.createStatement();
-            String query1 = "INSERT INTO customer " + "VALUES ('" + output.getOutputId() + "','" + output.getInputId() + "','" + output.getResult() + "')";
+            String query1 = "INSERT INTO  boundary_value_output " + "VALUES ('" + output.getOutputId() + "','" + output.getInputId() + "','" + output.getResult() + "')";
             stmt.executeUpdate(query1);
             System.out.println("Record is inserted in the table successfully..................");
         } catch (Exception excep) {
@@ -52,6 +52,107 @@ public class Output_DBConnect implements Database<TestingOutput, TestingOutputLi
         System.out.println("Please check it in the MySQL Table......... ……..");
     }
 
+    public void insertRobustness(TestingOutput output){
+        //database connect
+        Connection conn = null;
+        Statement stmt = null;
+        try {
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+            conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/gpa_project", "root", "");
+            System.out.println("Connection is created successfully:");
+            stmt = (Statement) conn.createStatement();
+            String query1 = "INSERT INTO  robustness_output " + "VALUES ('" + output.getOutputId() + "','" + output.getInputId() + "','" + output.getResult() + "')";
+            stmt.executeUpdate(query1);
+            System.out.println("Record is inserted in the table successfully..................");
+        } catch (Exception excep) {
+            excep.printStackTrace();
+        } finally {
+            try {
+                if (stmt != null)
+                    conn.close();
+            } catch (SQLException se) {
+            }
+            try {
+                if (conn != null)
+                    conn.close();
+            } catch (SQLException se) {
+                se.printStackTrace();
+            }
+        }
+        System.out.println("Please check it in the MySQL Table......... ……..");
+    }
+
+    public void insertWorstCaseBoundaryOutput(TestingOutput output){
+        //database connect
+        Connection conn = null;
+        Statement stmt = null;
+        try {
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+            conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/gpa_project", "root", "");
+            System.out.println("Connection is created successfully:");
+            stmt = (Statement) conn.createStatement();
+            String query1 = "INSERT INTO  worst_case_of_boundary_value_output " + "VALUES ('" + output.getOutputId() + "','" + output.getInputId() + "','" + output.getResult() + "')";
+            stmt.executeUpdate(query1);
+            System.out.println("Record is inserted in the table successfully..................");
+        } catch (Exception excep) {
+            excep.printStackTrace();
+        } finally {
+            try {
+                if (stmt != null)
+                    conn.close();
+            } catch (SQLException se) {
+            }
+            try {
+                if (conn != null)
+                    conn.close();
+            } catch (SQLException se) {
+                se.printStackTrace();
+            }
+        }
+        System.out.println("Please check it in the MySQL Table......... ……..");
+    }
+
+    public void insertWorstCaseRobustnessOutput(TestingOutput output){
+        //database connect
+        Connection conn = null;
+        Statement stmt = null;
+        try {
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+            conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/gpa_project", "root", "");
+            System.out.println("Connection is created successfully:");
+            stmt = (Statement) conn.createStatement();
+            String query1 = "INSERT INTO  worst_case_of_robustness_output " + "VALUES ('" + output.getOutputId() + "','" + output.getInputId() + "','" + output.getResult() + "')";
+            stmt.executeUpdate(query1);
+            System.out.println("Record is inserted in the table successfully..................");
+        } catch (Exception excep) {
+            excep.printStackTrace();
+        } finally {
+            try {
+                if (stmt != null)
+                    conn.close();
+            } catch (SQLException se) {
+            }
+            try {
+                if (conn != null)
+                    conn.close();
+            } catch (SQLException se) {
+                se.printStackTrace();
+            }
+        }
+        System.out.println("Please check it in the MySQL Table......... ……..");
+    }
 
 
 

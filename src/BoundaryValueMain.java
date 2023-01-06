@@ -18,7 +18,10 @@ public class BoundaryValueMain {
 
 //        String query2 = "Select * FROM boundary_value;";
         TestingOutputList testingOutputList = new TestingOutputList();
-        testingOutputList = testingOutputList.searchPassInput(list);
+        testingOutputList = testingOutputList.searchPassInput(list); //ได้ list output
+
+        // insert list Output
+
 
 
 
