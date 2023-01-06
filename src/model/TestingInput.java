@@ -2,14 +2,15 @@ package model;
 
 public class TestingInput {
 
+    private int inputId;
     private int grade;
     private int credit;
-    private String result;
 
-    public TestingInput(int grade, int credit, String result) {
+
+    public TestingInput(int inputId,int grade, int credit) {
+        this.inputId = inputId;
         this.grade = grade;
         this.credit = credit;
-        this.result = result;
     }
 
     public int getCredit() {
@@ -20,8 +21,8 @@ public class TestingInput {
         return grade;
     }
 
-    public String getResult() {
-        return result;
+    public int getInputId() {
+        return inputId;
     }
 
     public void setCredit(int credit) {
@@ -32,17 +33,18 @@ public class TestingInput {
         this.grade = grade;
     }
 
-    public void setResult(String result) {
-        this.result = result;
+    public void setInputId(int inputId) {
+        this.inputId = inputId;
     }
 
-//    public boolean IsGPAPass(TestingInput input){
+    //    public boolean IsGPAPass(TestingInput input){
 //        if (input.get){
 //
 //        }
 //    }
 
     public String toCsv() {
-        return grade + "," + credit + "," + result ;
+        return inputId + ", " + grade + "," + credit ;
     }
+
 }

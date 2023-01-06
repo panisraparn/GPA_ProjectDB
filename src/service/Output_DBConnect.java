@@ -2,10 +2,12 @@ package service;
 
 import model.TestingInput;
 import model.TestingInputList;
+import model.TestingOutput;
+import model.TestingOutputList;
 
 import java.sql.*;
 
-public class Input_DBConnect implements Database<TestingInput, TestingInputList> {
+public class Output_DBConnect implements Database<TestingOutput, TestingOutputList> {
 
     //database connect
     public Connection conn = null;
@@ -13,10 +15,10 @@ public class Input_DBConnect implements Database<TestingInput, TestingInputList>
     public ResultSet rs = null;
 
     //prepare for return readData
-    private TestingInput inputReadData;
+    private TestingOutput outputReadData;
 
     @Override
-    public void insertDatabase(TestingInput input) {
+    public void insertDatabase(TestingOutput output) {
 
     }
 
@@ -24,12 +26,11 @@ public class Input_DBConnect implements Database<TestingInput, TestingInputList>
 
 
     @Override
-    public TestingInput readRecord(String query) {
+    public TestingOutput readRecord(String query) {
         //prepare data
+        int outputId    ;
         int inputId ;
-        int grade    ;
-        int credit ;
-
+        String result ;
 
         //DB connect
         try {
@@ -45,12 +46,12 @@ public class Input_DBConnect implements Database<TestingInput, TestingInputList>
             rs = stmt.executeQuery(query);
 
             while (rs.next()){
-                inputId = Integer.parseInt(rs.getString(1));
-                grade = Integer.parseInt(rs.getString(2));
-                credit = Integer.parseInt(rs.getNString(3));
+                outputId = Integer.parseInt(rs.getString(1));
+                inputId = Integer.parseInt(rs.getNString(2));
+                result = rs.getString(3);
 
 
-                this.inputReadData = new TestingInput (inputId, grade, credit);
+                this.outputReadData = new TestingOutput (outputId, inputId, result);
 //                System.out.println(empLoginAccount.toCsv());
             }
             System.out.println("loginAccount can use from jdbc");
@@ -70,15 +71,15 @@ public class Input_DBConnect implements Database<TestingInput, TestingInputList>
         }
 //        System.out.println("Please check it in the MySQL Table......... ……..");
 
-        return inputReadData;
+        return outputReadData;
     }
 
 
     // return list จากในตาราง my sql
     @Override
-    public TestingInputList readDatabase(String q) {
-        TestingInputList list = new TestingInputList();
-        TestingInput inputReadData = new TestingInput(0,0,0);
+    public TestingOutputList readDatabase(String q) {
+        TestingOutputList list = new TestingOutputList();
+        TestingOutput outputReadData = new TestingOutput(0,0,"0");
 
         //DB connect
         try {
@@ -94,12 +95,12 @@ public class Input_DBConnect implements Database<TestingInput, TestingInputList>
             rs = stmt.executeQuery(q);
 
             while (rs.next()) {
-                int inputId = Integer.parseInt(rs.getString(1));
-                int grade = Integer.parseInt(rs.getString(2));
-                int credit  =Integer.parseInt(rs.getString(3));
+                int outputId = Integer.parseInt(rs.getString(1));
+                int inputId  =Integer.parseInt(rs.getString(2));
+                String result = rs.getString(3);
 
-                inputReadData = new TestingInput(inputId,grade, credit);
-                list.addTestingInput(inputReadData);
+                outputReadData = new TestingOutput(outputId, inputId, result);
+                list.addTestingOutput(outputReadData);
 //                System.out.println(empLoginAccount.toCsv());
             }
             System.out.println("list can use from jdbc");

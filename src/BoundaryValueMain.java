@@ -1,13 +1,25 @@
+import model.TestingInput;
+import model.TestingInputList;
+import service.Database;
+import service.Input_DBConnect;
 
 public class BoundaryValueMain {
 
     public static void main(String args[])
     {
+        TestingInputList list = new TestingInputList();
+
         //อ่าน database ของ document
-        Database<DocumentTOB, DocumentTOBList> database = new DocumentTOB_DBConnect();
-        String query1 = " Select * FROM documenttransactionofborrow WHERE Dtb_status = '0' ORDER BY Dtb_date DESC;  ";
+        Database<TestingInput, TestingInputList> database = new Input_DBConnect();
+        String query1 = " Select * FROM boundary_value ;  ";
         //เอาที่อ่านจาก database มาใส่ list
-        documentTOBList = database.readDatabase(query1); //ได้ documentTob list
+        list = database.readDatabase(query1); //ได้  list ทั้งหมดจากตาราง boundary_value
+
+//        System.out.println(list.toCsv());
+
+
+
+
 
     }
 }
