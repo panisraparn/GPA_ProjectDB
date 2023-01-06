@@ -87,7 +87,7 @@ public class Input_DBConnect implements Database<TestingInput, TestingInputList>
             } catch (Exception e) {
                 System.out.println(e);
             }
-            conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/gpa_project", "root", "");
+            conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/gpa_project", "root", "");
             System.out.println("Connection is created successfully:");
 
             stmt = conn.createStatement();
