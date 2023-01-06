@@ -1,8 +1,10 @@
 import model.TestingInput;
 import model.TestingInputList;
+import model.TestingOutput;
 import model.TestingOutputList;
 import service.Database;
 import service.Input_DBConnect;
+import service.Output_DBConnect;
 
 public class BoundaryValueMain {
 
@@ -21,6 +23,12 @@ public class BoundaryValueMain {
         testingOutputList = testingOutputList.searchPassInput(list); //ได้ list output
 
         // insert list Output
+        // ใช้ Db
+        Database<TestingOutput, TestingOutputList> database1 = new Output_DBConnect();
+
+        //for loop วน Output list
+        TestingOutput  output = new TestingOutput();
+        database1.insertDatabase(output);
 
 
 
