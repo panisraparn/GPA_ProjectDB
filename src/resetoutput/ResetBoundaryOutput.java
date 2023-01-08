@@ -2,7 +2,7 @@ package resetoutput;
 
 import java.sql.*;
 
-public class ResetBoundaryOutputTable {
+public class ResetBoundaryOutput {
 
     public static void main(String[] args) {
         try {

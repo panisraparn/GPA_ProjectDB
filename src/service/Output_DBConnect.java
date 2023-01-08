@@ -18,7 +18,7 @@ public class Output_DBConnect implements Database<TestingOutput, TestingOutputLi
     private TestingOutput outputReadData;
 
     @Override
-    public void insertDatabase(TestingOutput output) {
+    public void insertBoundaryOutput(TestingOutput output) {
         //database connect
         Connection conn = null;
         Statement stmt = null;
@@ -52,7 +52,7 @@ public class Output_DBConnect implements Database<TestingOutput, TestingOutputLi
         System.out.println("Please check it in the MySQL Table......... ……..");
     }
 
-    public void insertRobustness(TestingOutput output){
+    public void insertRobustnessOutput(TestingOutput output){
         //database connect
         Connection conn = null;
         Statement stmt = null;

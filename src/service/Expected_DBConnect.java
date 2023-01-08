@@ -19,7 +19,22 @@ public class Expected_DBConnect implements Database<Expected, ExpectedList>{
 
 
     @Override
-    public void insertDatabase(Expected expected) {
+    public void insertBoundaryOutput(Expected expected) {
+    }
+
+    @Override
+    public void insertRobustnessOutput(Expected expected) {
+
+    }
+
+    @Override
+    public void insertWorstCaseBoundaryOutput(Expected expected) {
+
+    }
+
+    @Override
+    public void insertWorstCaseRobustnessOutput(Expected expected) {
+
     }
 
     //return object

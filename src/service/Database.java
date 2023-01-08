@@ -3,7 +3,14 @@ package service;
 public interface Database<T, C> {
 
     //ใส่ object --> insert ข้อมูลใน table
-    void insertDatabase(T t);
+    void insertBoundaryOutput(T t);
+
+    //ใส่ object --> insert ข้อมูลใน table
+    void insertRobustnessOutput(T t);
+
+    void insertWorstCaseBoundaryOutput(T t);
+
+    void insertWorstCaseRobustnessOutput(T t);
 
     T readRecord(String query);
 

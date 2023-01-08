@@ -29,7 +29,7 @@ public class BoundaryValueMain {
         //for loop วน Output list
         for(int i = 0; i < 9; i++){
             TestingOutput output = new TestingOutput(testingOutputList.getTestingOutputs().get(i).getInputId(), testingOutputList.getTestingOutputs().get(i).getInputId(), testingOutputList.getTestingOutputs().get(i).getResult());
-            database1.insertDatabase(output);
+            database1.insertBoundaryOutput(output);
         }
 
 

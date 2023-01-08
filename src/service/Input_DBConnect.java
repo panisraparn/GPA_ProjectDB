@@ -16,11 +16,24 @@ public class Input_DBConnect implements Database<TestingInput, TestingInputList>
     private TestingInput inputReadData;
 
     @Override
-    public void insertDatabase(TestingInput input) {
+    public void insertBoundaryOutput(TestingInput input) {
 
     }
 
+    @Override
+    public void insertRobustnessOutput(TestingInput input) {
 
+    }
+
+    @Override
+    public void insertWorstCaseBoundaryOutput(TestingInput input) {
+
+    }
+
+    @Override
+    public void insertWorstCaseRobustnessOutput(TestingInput input) {
+
+    }
 
 
     @Override

@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class ResetWorstCaseBoundaryOutput {
+public class ResetWorstCaseRobustnessOutput {
     public static void main(String[] args) {
         try {
             // Connect to the database
@@ -16,7 +16,7 @@ public class ResetWorstCaseBoundaryOutput {
             Statement stmt = conn.createStatement();
 
             // Execute the delete query
-            int count = stmt.executeUpdate("DELETE FROM worst_case_of_boundary_value_output");
+            int count = stmt.executeUpdate("DELETE FROM worst_case_of_robustness_output");
 
             // Print the number of records deleted
             System.out.println(count + " records deleted");
