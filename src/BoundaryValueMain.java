@@ -1,8 +1,6 @@
-import model.TestingInput;
-import model.TestingInputList;
-import model.TestingOutput;
-import model.TestingOutputList;
+import model.*;
 import service.Database;
+import service.Expected_DBConnect;
 import service.Input_DBConnect;
 import service.Output_DBConnect;
 
@@ -34,6 +32,27 @@ public class BoundaryValueMain {
 
 
 //        System.out.println(testingOutputList.toCsv());
+
+        String query3 = "Select * FROM boundary_value_expected;";
+        String query4 = "Select * FROM boundary_value_output;";
+        Database<Expected, ExpectedList> database2 = new Expected_DBConnect();
+        Database<TestingOutput, TestingOutputList> database3 = new Output_DBConnect();
+        ExpectedList expectedList = database2.readDatabase(query3);
+        TestingOutputList outputList = database3.readDatabase(query4);
+
+        int x = 0;
+        for(int i = 0; i < 9; i++) {
+            Expected expected = expectedList.getExpectedList().get(i);
+            if(expected.getExpect_result().equals(outputList.getTestingOutputs().get(i).getResult())) {
+                x++;
+            }
+        }
+
+        if(x == 9) {
+            System.out.println("Test Pass :)");
+        } else {
+            System.out.println("Test Fail :(");
+        }
 
 
 
