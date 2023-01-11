@@ -52,7 +52,7 @@ public class Input_DBConnect implements Database<TestingInput, TestingInputList>
                 System.out.println(e);
             }
             conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/gpa_project", "root", "");
-            System.out.println("Connection is created successfully:");
+//            System.out.println("Connection is created successfully:");
 
             stmt = conn.createStatement();
             rs = stmt.executeQuery(query);
@@ -66,7 +66,7 @@ public class Input_DBConnect implements Database<TestingInput, TestingInputList>
                 this.inputReadData = new TestingInput (inputId, grade, credit);
 //                System.out.println(empLoginAccount.toCsv());
             }
-            System.out.println("loginAccount can use from jdbc");
+//            System.out.println("loginAccount can use from jdbc");
         } catch (Exception excep) {
             excep.printStackTrace();
         } finally {
@@ -101,7 +101,7 @@ public class Input_DBConnect implements Database<TestingInput, TestingInputList>
                 System.out.println(e);
             }
             conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/gpa_project", "root", "");
-            System.out.println("Connection is created successfully:");
+//            System.out.println("Connection is created successfully:");
 
             stmt = conn.createStatement();
             rs = stmt.executeQuery(q);
@@ -115,7 +115,7 @@ public class Input_DBConnect implements Database<TestingInput, TestingInputList>
                 list.addTestingInput(inputReadData);
 //                System.out.println(empLoginAccount.toCsv());
             }
-            System.out.println("list can use from jdbc");
+//            System.out.println("list can use from jdbc");
         } catch (Exception excep) {
             excep.printStackTrace();
         } finally {
@@ -131,7 +131,7 @@ public class Input_DBConnect implements Database<TestingInput, TestingInputList>
                 se.printStackTrace();
             }
         }
-        System.out.println("Please check it in the MySQL Table......... ……..");
+//        System.out.println("Please check it in the MySQL Table......... ……..");
 
         return list;
     }

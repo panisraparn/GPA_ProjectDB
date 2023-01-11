@@ -29,11 +29,11 @@ public class Output_DBConnect implements Database<TestingOutput, TestingOutputLi
                 System.out.println(e);
             }
             conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/gpa_project", "root", "");
-            System.out.println("Connection is created successfully:");
+//            System.out.println("Connection is created successfully:");
             stmt = (Statement) conn.createStatement();
             String query1 = "INSERT INTO  boundary_value_output " + "VALUES ('" + output.getOutputId() + "','" + output.getInputId() + "','" + output.getResult() + "')";
             stmt.executeUpdate(query1);
-            System.out.println("Record is inserted in the table successfully..................");
+//            System.out.println("Record is inserted in the table successfully..................");
         } catch (Exception excep) {
             excep.printStackTrace();
         } finally {
@@ -49,7 +49,7 @@ public class Output_DBConnect implements Database<TestingOutput, TestingOutputLi
                 se.printStackTrace();
             }
         }
-        System.out.println("Please check it in the MySQL Table......... ……..");
+//        System.out.println("Please check it in the MySQL Table......... ……..");
     }
 
     public void insertRobustnessOutput(TestingOutput output){
@@ -63,11 +63,11 @@ public class Output_DBConnect implements Database<TestingOutput, TestingOutputLi
                 System.out.println(e);
             }
             conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/gpa_project", "root", "");
-            System.out.println("Connection is created successfully:");
+//            System.out.println("Connection is created successfully:");
             stmt = (Statement) conn.createStatement();
             String query1 = "INSERT INTO  robustness_output " + "VALUES ('" + output.getOutputId() + "','" + output.getInputId() + "','" + output.getResult() + "')";
             stmt.executeUpdate(query1);
-            System.out.println("Record is inserted in the table successfully..................");
+//            System.out.println("Record is inserted in the table successfully..................");
         } catch (Exception excep) {
             excep.printStackTrace();
         } finally {
@@ -83,7 +83,7 @@ public class Output_DBConnect implements Database<TestingOutput, TestingOutputLi
                 se.printStackTrace();
             }
         }
-        System.out.println("Please check it in the MySQL Table......... ……..");
+//        System.out.println("Please check it in the MySQL Table......... ……..");
     }
 
     public void insertWorstCaseBoundaryOutput(TestingOutput output){
@@ -97,11 +97,11 @@ public class Output_DBConnect implements Database<TestingOutput, TestingOutputLi
                 System.out.println(e);
             }
             conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/gpa_project", "root", "");
-            System.out.println("Connection is created successfully:");
+//            System.out.println("Connection is created successfully:");
             stmt = (Statement) conn.createStatement();
             String query1 = "INSERT INTO  worst_case_of_boundary_value_output " + "VALUES ('" + output.getOutputId() + "','" + output.getInputId() + "','" + output.getResult() + "')";
             stmt.executeUpdate(query1);
-            System.out.println("Record is inserted in the table successfully..................");
+//            System.out.println("Record is inserted in the table successfully..................");
         } catch (Exception excep) {
             excep.printStackTrace();
         } finally {
@@ -117,7 +117,7 @@ public class Output_DBConnect implements Database<TestingOutput, TestingOutputLi
                 se.printStackTrace();
             }
         }
-        System.out.println("Please check it in the MySQL Table......... ……..");
+//        System.out.println("Please check it in the MySQL Table......... ……..");
     }
 
     public void insertWorstCaseRobustnessOutput(TestingOutput output){
@@ -131,11 +131,11 @@ public class Output_DBConnect implements Database<TestingOutput, TestingOutputLi
                 System.out.println(e);
             }
             conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/gpa_project", "root", "");
-            System.out.println("Connection is created successfully:");
+//            System.out.println("Connection is created successfully:");
             stmt = (Statement) conn.createStatement();
             String query1 = "INSERT INTO  worst_case_of_robustness_output " + "VALUES ('" + output.getOutputId() + "','" + output.getInputId() + "','" + output.getResult() + "')";
             stmt.executeUpdate(query1);
-            System.out.println("Record is inserted in the table successfully..................");
+//            System.out.println("Record is inserted in the table successfully..................");
         } catch (Exception excep) {
             excep.printStackTrace();
         } finally {
@@ -151,7 +151,7 @@ public class Output_DBConnect implements Database<TestingOutput, TestingOutputLi
                 se.printStackTrace();
             }
         }
-        System.out.println("Please check it in the MySQL Table......... ……..");
+//        System.out.println("Please check it in the MySQL Table......... ……..");
     }
 
 
@@ -171,7 +171,7 @@ public class Output_DBConnect implements Database<TestingOutput, TestingOutputLi
                 System.out.println(e);
             }
             conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/gpa_project", "root", "");
-            System.out.println("Connection is created successfully:");
+//            System.out.println("Connection is created successfully:");
 
             stmt = conn.createStatement();
             rs = stmt.executeQuery(query);
@@ -185,7 +185,7 @@ public class Output_DBConnect implements Database<TestingOutput, TestingOutputLi
                 this.outputReadData = new TestingOutput (outputId, inputId, result);
 //                System.out.println(empLoginAccount.toCsv());
             }
-            System.out.println("loginAccount can use from jdbc");
+//            System.out.println("loginAccount can use from jdbc");
         } catch (Exception excep) {
             excep.printStackTrace();
         } finally {
@@ -220,7 +220,7 @@ public class Output_DBConnect implements Database<TestingOutput, TestingOutputLi
                 System.out.println(e);
             }
             conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/gpa_project", "root", "");
-            System.out.println("Connection is created successfully:");
+//            System.out.println("Connection is created successfully:");
 
             stmt = conn.createStatement();
             rs = stmt.executeQuery(q);
@@ -234,7 +234,7 @@ public class Output_DBConnect implements Database<TestingOutput, TestingOutputLi
                 list.addTestingOutput(outputReadData);
 //                System.out.println(empLoginAccount.toCsv());
             }
-            System.out.println("list can use from jdbc");
+//            System.out.println("list can use from jdbc");
         } catch (Exception excep) {
             excep.printStackTrace();
         } finally {
@@ -250,7 +250,7 @@ public class Output_DBConnect implements Database<TestingOutput, TestingOutputLi
                 se.printStackTrace();
             }
         }
-        System.out.println("Please check it in the MySQL Table......... ……..");
+//        System.out.println("Please check it in the MySQL Table......... ……..");
 
         return list;
     }

@@ -58,7 +58,7 @@ public class Expected_DBConnect implements Database<Expected, ExpectedList>{
                 System.out.println(e);
             }
             conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/gpa_project", "root", "");
-            System.out.println("Connection is created successfully:");
+//            System.out.println("Connection is created successfully:");
 
             stmt = conn.createStatement();
             rs = stmt.executeQuery(q);
@@ -72,7 +72,7 @@ public class Expected_DBConnect implements Database<Expected, ExpectedList>{
                 list.add(expectedReadData);
 //                System.out.println(empLoginAccount.toCsv());
             }
-            System.out.println("list can use from jdbc");
+//            System.out.println("list can use from jdbc");
         } catch (Exception excep) {
             excep.printStackTrace();
         } finally {
@@ -88,7 +88,7 @@ public class Expected_DBConnect implements Database<Expected, ExpectedList>{
                 se.printStackTrace();
             }
         }
-        System.out.println("Please check it in the MySQL Table......... ……..");
+//        System.out.println("Please check it in the MySQL Table......... ……..");
 
         return list;
     }

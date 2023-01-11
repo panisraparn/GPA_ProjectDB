@@ -1,15 +1,27 @@
-import model.TestingInput;
-import model.TestingInputList;
-import model.TestingOutput;
-import model.TestingOutputList;
+import model.*;
 import service.Database;
+import service.Expected_DBConnect;
 import service.Input_DBConnect;
 import service.Output_DBConnect;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
 
 public class WorstCaseOfBoundaryValueMain {
 
     public static void main(String args[])
     {
+
+        Scanner obj = new Scanner(System.in);
+        System.out.println("Enter your name :");
+        String name = obj.nextLine();
+        System.out.println("Test by " + name);
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm:ss.SSSSS");
+        System.out.println("Start : " + format.format(LocalDateTime.now()));
+        long start = System.currentTimeMillis();
+
+
         TestingInputList list = new TestingInputList();
 
         //อ่าน database ของ document
@@ -35,9 +47,37 @@ public class WorstCaseOfBoundaryValueMain {
 
 //        System.out.println(testingOutputList.toCsv());
 
+        System.out.println("Worst Case Of Boundary Value Testing ...");
+        String query3 = "Select * FROM worst_case_of_boundary_value_expected;";
+        String query4 = "Select * FROM worst_case_of_boundary_value_output;";
+        Database<Expected, ExpectedList> database2 = new Expected_DBConnect();
+        Database<TestingOutput, TestingOutputList> database3 = new Output_DBConnect();
+        ExpectedList expectedList = database2.readDatabase(query3);
+        TestingOutputList outputList = database3.readDatabase(query4);
 
+        int x = 0;
+        for(int i = 0; i < 25; i++) {
+            Expected expected = expectedList.getExpectedList().get(i);
+            if(expected.getExpect_result().equals(outputList.getTestingOutputs().get(i).getResult())) {
+                x++;
+            }
+        }
+
+        if(x == 25) {
+            System.out.println("Test Pass :)");
+        } else {
+            System.out.println("Test Fail :(");
+        }
+
+        long end = System.currentTimeMillis();
+        System.out.println("Finish : " + format.format(LocalDateTime.now()));
+        float msec = end - start;
+        System.out.println(msec + " milliseconds");
+
+
+    }
 
 
 
     }
-}
+

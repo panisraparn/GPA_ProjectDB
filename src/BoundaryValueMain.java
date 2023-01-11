@@ -4,10 +4,23 @@ import service.Expected_DBConnect;
 import service.Input_DBConnect;
 import service.Output_DBConnect;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+
 public class BoundaryValueMain {
 
     public static void main(String args[])
     {
+
+        Scanner obj = new Scanner(System.in);
+        System.out.println("Enter your name :");
+        String name = obj.nextLine();
+        System.out.println("Test by " + name);
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm:ss.SSSSS");
+        System.out.println("Start : " + format.format(LocalDateTime.now()));
+        long start = System.currentTimeMillis();
+
         TestingInputList list = new TestingInputList();
 
         //อ่าน database ของ document
@@ -30,9 +43,8 @@ public class BoundaryValueMain {
             database1.insertBoundaryOutput(output);
         }
 
-
 //        System.out.println(testingOutputList.toCsv());
-
+        System.out.println("Boundary Value Testing ...");
         String query3 = "Select * FROM boundary_value_expected;";
         String query4 = "Select * FROM boundary_value_output;";
         Database<Expected, ExpectedList> database2 = new Expected_DBConnect();
@@ -54,7 +66,10 @@ public class BoundaryValueMain {
             System.out.println("Test Fail :(");
         }
 
-
+        long end = System.currentTimeMillis();
+        System.out.println("Finish : " + format.format(LocalDateTime.now()));
+        float msec = end - start;
+        System.out.println(msec + " milliseconds");
 
 
 
